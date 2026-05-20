@@ -465,6 +465,196 @@
 
     .budget-total span:last-child { color: var(--cyan); }
 
+    /* ── CAPITAL STRUCTURE ────────────────────────────────── */
+    .capital-chart {
+      margin-top: 40px;
+    }
+
+    .cap-bar-wrap {
+      margin-bottom: 12px;
+    }
+
+    .cap-bar {
+      display: flex;
+      height: 52px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .cap-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .cap-seg.invest {
+      background: var(--cyan);
+      color: #000;
+      width: 52.08%; /* 500/960 */
+    }
+
+    .cap-seg.profit {
+      background: rgba(94,223,255,0.18);
+      color: var(--cyan);
+      border-left: 1px solid rgba(94,223,255,0.3);
+      width: 47.92%; /* 460/960 */
+    }
+
+    .cap-legend {
+      display: flex;
+      gap: 32px;
+      margin-top: 16px;
+    }
+
+    .cap-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .cap-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .cap-dot.invest { background: var(--cyan); }
+    .cap-dot.profit { background: rgba(94,223,255,0.3); border: 1px solid rgba(94,223,255,0.4); }
+
+    .cap-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 28px;
+    }
+
+    .cap-card {
+      background: var(--surface);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .cap-card .big {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .cap-card.invest-card .big { color: var(--cyan); }
+    .cap-card.profit-card .big { color: rgba(94,223,255,0.6); }
+    .cap-card.total-card .big  { color: var(--white); }
+
+    .cap-card .lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .cap-card .sub {
+      font-size: 12px;
+      color: var(--dim);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ── PROFIT MARGINS ───────────────────────────────────── */
+    .margin-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .margin-tab-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      color: var(--muted);
+    }
+
+    .margin-tab-label.active {
+      color: var(--cyan);
+      border-bottom: 2px solid var(--cyan);
+      margin-bottom: -1px;
+    }
+
+    .margin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .margin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .margin-card-head {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+    }
+
+    .margin-card-head h3 {
+      font-size: 14px;
+      color: var(--white);
+    }
+
+    .margin-card-head .msrp {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .margin-rows {
+      padding: 0;
+    }
+
+    .mrow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .mrow:last-child { border-bottom: none; }
+
+    .mrow .mcat { color: var(--muted); }
+    .mrow .mval { color: var(--text); font-weight: 500; }
+    .mrow .mval.neg { color: #ff6b6b; }
+    .mrow.net { background: rgba(94,223,255,0.06); }
+    .mrow.net .mcat { color: var(--cyan); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .mrow.net .mval { color: var(--cyan); font-family: 'Archivo Black', sans-serif; font-size: 16px; }
+
+    .margin-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin: 28px 0 12px;
+    }
+
     /* ── FOUNDER ──────────────────────────────────────────── */
     .founder-row {
       display: grid;
@@ -630,8 +820,8 @@
           <div class="meta-val">2014</div>
         </div>
         <div class="meta-item">
-          <div class="meta-key">Total Ask</div>
-          <div class="meta-val">$960,000</div>
+          <div class="meta-key">Investment Ask</div>
+          <div class="meta-val">$500,000</div>
         </div>
         <div class="meta-item">
           <div class="meta-key">Stage</div>
@@ -669,8 +859,8 @@
           <div class="fact-key">Product Lines</div>
         </div>
         <div class="fact">
-          <div class="fact-val">$960K</div>
-          <div class="fact-key">2-Year Capital Plan</div>
+          <div class="fact-val">$500K</div>
+          <div class="fact-key">Investment Ask</div>
         </div>
         <div class="fact">
           <div class="fact-val">$18B</div>
@@ -791,23 +981,61 @@
       </div>
     </section>
 
+    <!-- CAPITAL STRUCTURE -->
+    <section>
+      <div class="label">Capital Structure</div>
+      <h2>How We Get to $960K</h2>
+      <p class="lead">We are seeking $500,000 in private investment. The remaining $460,000 is generated through Year 1 product sales, bridging the full two-year operational budget without additional capital raises.</p>
+
+      <div class="capital-chart">
+        <div class="cap-bar-wrap">
+          <div class="cap-bar">
+            <div class="cap-seg invest">$500K — Investor Capital</div>
+            <div class="cap-seg profit">$460K — Year 1 Profit</div>
+          </div>
+        </div>
+        <div class="cap-legend">
+          <div class="cap-legend-item"><div class="cap-dot invest"></div> $500,000 — Investor Capital (52%)</div>
+          <div class="cap-legend-item"><div class="cap-dot profit"></div> $460,000 — Profit Generated Year 1 (48%)</div>
+        </div>
+      </div>
+
+      <div class="cap-cards">
+        <div class="cap-card invest-card">
+          <div class="big">$500,000</div>
+          <div class="lbl">Investment Ask</div>
+          <div class="sub">Private capital — funds Year 1 operations in full</div>
+        </div>
+        <div class="cap-card profit-card">
+          <div class="big">$460,000</div>
+          <div class="lbl">Year 1 Profit</div>
+          <div class="sub">Generated through B2C and wholesale sales; funds Year 2</div>
+        </div>
+        <div class="cap-card total-card">
+          <div class="big">$960,000</div>
+          <div class="lbl">Total Budget</div>
+          <div class="sub">Full two-year relaunch plan — no second raise required</div>
+        </div>
+      </div>
+    </section>
+
     <!-- USE OF FUNDS -->
     <section>
       <div class="label">Use of Funds</div>
       <h2>Two-Year Capital Plan</h2>
-      <p class="lead">$960,000 across two years. Year 1 is weighted toward initial inventory build and product development. Year 2 shifts toward wholesale channel expansion and increased marketing.</p>
+      <p class="lead">Total operational budget is $960,000 across two years. The $500,000 investor capital covers Year 1 in full. The $460,000 balance is funded by profit generated in Year 1, bridging into Year 2 operations.</p>
       <div class="ask-row">
         <div class="ask-cell">
           <div class="big">$477,500</div>
-          <div class="lbl">Year 1</div>
+          <div class="lbl">Year 1 Budget</div>
         </div>
         <div class="ask-cell">
           <div class="big">$482,500</div>
-          <div class="lbl">Year 2</div>
+          <div class="lbl">Year 2 Budget</div>
         </div>
         <div class="ask-cell">
           <div class="big">$960,000</div>
-          <div class="lbl">Total Ask</div>
+          <div class="lbl">Total 2-Year Budget</div>
         </div>
       </div>
       <div class="budget-cols">
@@ -892,6 +1120,99 @@
           <div class="budget-total"><span>Year 2 Total</span><span>$482,500</span></div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- PROFIT MARGINS -->
+    <section>
+      <div class="label">Unit Economics</div>
+      <h2>Profit Margins by Product</h2>
+      <p class="lead">Margins across two channels — direct-to-consumer (B2C via Amazon FBA) and wholesale distribution. B2C yields significantly higher per-unit profit; wholesale builds retail shelf presence and recurring volume.</p>
+
+      <div class="margin-section-label">B2C — Direct to Consumer (Amazon FBA)</div>
+      <div class="margin-grid">
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Travel Lock</h3>
+            <div class="msrp">MSRP $49.99</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$12.99</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$2.00</span></div>
+            <div class="mrow"><span class="mcat">FBA Fees</span><span class="mval neg">−$12.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$2.71</span></div>
+            <div class="mrow"><span class="mcat">Storage / Returns</span><span class="mval neg">−$3.00</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$17.29</span></div>
+          </div>
+        </div>
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Sport Lock</h3>
+            <div class="msrp">MSRP $39.99</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$11.99</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$2.00</span></div>
+            <div class="mrow"><span class="mcat">FBA Fees</span><span class="mval neg">−$12.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$2.51</span></div>
+            <div class="mrow"><span class="mcat">Storage / Returns</span><span class="mval neg">−$3.00</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$8.49</span></div>
+          </div>
+        </div>
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Bike Lock</h3>
+            <div class="msrp">MSRP $99.99</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$23.00</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$3.00</span></div>
+            <div class="mrow"><span class="mcat">FBA Fees</span><span class="mval neg">−$12.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$4.81</span></div>
+            <div class="mrow"><span class="mcat">Storage / Returns</span><span class="mval neg">−$3.00</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$54.18</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="margin-section-label">Wholesale — Retail Distribution</div>
+      <div class="margin-grid">
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Travel Lock</h3>
+            <div class="msrp">MSRP $49.99 &nbsp;·&nbsp; Wholesale $25.00 &nbsp;·&nbsp; Distributor $20.00</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$12.99</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$2.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$2.71</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$2.29</span></div>
+          </div>
+        </div>
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Sport Lock</h3>
+            <div class="msrp">MSRP $44.99 &nbsp;·&nbsp; Wholesale $22.50 &nbsp;·&nbsp; Distributor $18.00</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$11.99</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$2.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$2.51</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$1.50</span></div>
+          </div>
+        </div>
+        <div class="margin-card">
+          <div class="margin-card-head">
+            <h3>Bike Lock</h3>
+            <div class="msrp">MSRP $99.99 &nbsp;·&nbsp; Wholesale $50.00 &nbsp;·&nbsp; Distributor $40.00</div>
+          </div>
+          <div class="margin-rows">
+            <div class="mrow"><span class="mcat">Factory Cost</span><span class="mval neg">−$23.00</span></div>
+            <div class="mrow"><span class="mcat">Shipping</span><span class="mval neg">−$2.00</span></div>
+            <div class="mrow"><span class="mcat">Tariffs</span><span class="mval neg">−$4.81</span></div>
+            <div class="mrow net"><span class="mcat">Net Profit / Unit</span><span class="mval">$10.19</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
