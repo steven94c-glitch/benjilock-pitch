@@ -997,9 +997,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 64px;
+      padding: 80px 8% 80px 10%;
       background: var(--bg);
     }
+
+    .deck-text-panel > * { max-width: 560px; }
 
     .deck-text-panel .page-num {
       font-size: 10px;
@@ -1064,8 +1066,8 @@
     .deck-full-content {
       position: relative;
       z-index: 2;
-      padding: 64px;
-      max-width: 800px;
+      padding: 80px 10%;
+      max-width: 900px;
     }
 
     .deck-full-content .page-num {
@@ -1097,9 +1099,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 64px;
+      padding: 80px 10% 80px 8%;
       background: var(--surface);
     }
+
+    .deck-quote-panel > * { max-width: 560px; }
 
     .deck-quote-panel .page-num {
       font-size: 10px;
@@ -1146,11 +1150,13 @@
     }
 
     .deck-need-text {
-      padding: 80px 64px;
+      padding: 80px 8% 80px 10%;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
+
+    .deck-need-text > * { max-width: 560px; }
 
     .deck-need-image {
       position: relative;
@@ -1191,8 +1197,8 @@
     .deck-relaunch-content {
       position: relative;
       z-index: 2;
-      padding: 80px 64px;
-      max-width: 620px;
+      padding: 80px 10%;
+      max-width: 780px;
     }
 
     .deck-relaunch-content .page-num {
@@ -1235,9 +1241,11 @@
       .deck-split, .deck-need-inner { grid-template-columns: 1fr; }
       .deck-photo-panel { min-height: 320px; }
       .deck-text-panel, .deck-quote-panel { padding: 56px 28px; }
+      .deck-text-panel > *, .deck-quote-panel > * { max-width: 100%; }
       .deck-full-content { padding: 40px 28px; }
       .deck-relaunch-content { padding: 56px 28px; max-width: 100%; }
       .deck-need-text { padding: 56px 28px; }
+      .deck-need-text > * { max-width: 100%; }
     }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
@@ -1280,8 +1288,6 @@
     </div>
     <span class="header-label">Strategic Financing Plan — Confidential</span>
   </header>
-
-  <div class="page">
 
     <!-- PAGE 1 — COVER -->
     <div class="deck">
@@ -1380,6 +1386,8 @@
         </div>
       </div>
     </div>
+
+  <div class="page">
 
     <!-- EXECUTIVE SUMMARY -->
     <section>
