@@ -972,6 +972,15 @@
     }
 
     .deck-cover .deck-title span { color: var(--cyan); }
+    .deck-cover .deck-title .deck-title-sub {
+      font-size: clamp(16px, 2vw, 26px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--cyan);
+      display: block;
+      margin-top: 10px;
+    }
 
     .deck-cover .cover-rule {
       width: 48px;
@@ -1599,7 +1608,7 @@
           </svg>
         </div>
         <div class="slogan">The Key Is At Your Fingertips®</div>
-        <div class="deck-title">Investor Deck —<br/><span>Confidential</span></div>
+        <div class="deck-title">Investor Deck<br/><span class="deck-title-sub">Confidential</span></div>
         <div class="cover-rule"></div>
       </div>
     </div>
