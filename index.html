@@ -1716,7 +1716,7 @@
   <div class="page">
 
     <!-- EXECUTIVE SUMMARY -->
-    <section>
+    <section id="s-exec">
       <div class="label">Executive Summary</div>
       <h2>The Opportunity</h2>
       <p class="lead">BenjiLock invented the fingerprint padlock — a product category that previously did not exist. Validated by Shark Tank investment, national media coverage, and consumer adoption, the company is seeking private capital to fund a structured two-year relaunch across product development, wholesale distribution, and marketing.</p>
@@ -1751,7 +1751,7 @@
     </section>
 
     <!-- MARKET -->
-    <section>
+    <section id="s-market">
       <div class="label">Market</div>
       <h2>Market Opportunity</h2>
       <p class="lead">The smart lock market is growing rapidly. The traditional padlock segment — 3B+ units annually — has seen minimal technology disruption. BenjiLock is the only purpose-built biometric padlock brand with consumer recognition.</p>
@@ -1768,7 +1768,7 @@
     </section>
 
     <!-- CAPITAL STRUCTURE -->
-    <section>
+    <section id="s-capital">
       <div class="label">Capital Structure</div>
       <h2>How We Get to $960K</h2>
       <p class="lead">We are seeking $500,000 in private investment. The remaining $460,000 is generated through product sales over the two-year plan, covering the full operational budget without an additional capital raise.</p>
@@ -1806,7 +1806,7 @@
     </section>
 
     <!-- PROJECTIONS -->
-    <section>
+    <section id="s-projections">
       <div class="label">Sales Projections — Year 1</div>
       <h2>Revenue &amp; Gross Profit</h2>
       <p class="lead">Year 1 projections across B2C (Amazon FBA) and wholesale distribution channels for three core SKUs.</p>
@@ -1908,7 +1908,7 @@
     </section>
 
     <!-- USE OF FUNDS -->
-    <section>
+    <section id="s-budget">
       <div class="label">Use of Funds</div>
       <h2>Two-Year Budget</h2>
       <p class="lead">Total operational budget is $960,000 across two years. The $500,000 investor capital covers Year 1 in full. The $460,000 balance is funded by profit generated across the two-year plan, bridging into Year 2 operations.</p>
@@ -2012,7 +2012,7 @@
     </section>
 
     <!-- PROFIT MARGINS -->
-    <section>
+    <section id="s-margins">
       <div class="label">Unit Economics</div>
       <h2>Profit Margins by Product</h2>
       <p class="lead">Margins across two channels — direct-to-consumer (B2C via Amazon FBA) and wholesale distribution. B2C yields significantly higher per-unit profit; wholesale builds retail shelf presence and recurring volume.</p>
@@ -2115,7 +2115,7 @@
     </section>
 
     <!-- FOUNDER -->
-    <section>
+    <section id="s-founder">
       <div class="label">Leadership</div>
       <h2>Founder</h2>
       <div class="founder-row">
@@ -2143,6 +2143,8 @@
       *, *::before, *::after {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        animation: none !important;
+        transition: none !important;
       }
 
       @page { size: 1440px 900px; margin: 0; }
@@ -2151,25 +2153,24 @@
 
       header { display: none !important; }
 
+      /* ── Deck pages — one per page ── */
       .deck {
         page-break-after: always;
         break-after: page;
         border-bottom: none !important;
+        overflow: hidden;
       }
 
-      .deck:last-of-type {
-        page-break-after: avoid;
-        break-after: avoid;
+      /* ── Fix parallax — restore bg images to full cover ── */
+      .deck-full img.deck-bg,
+      .deck-relaunch img.deck-bg {
+        top: 0 !important;
+        height: 100% !important;
+        transform: none !important;
+        will-change: auto !important;
       }
 
-      section {
-        page-break-before: always;
-        break-before: page;
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-
-      /* Freeze animations so content is visible */
+      /* ── Reveal / slide panels — force visible ── */
       .reveal, .deck-text-panel, .deck-photo-panel,
       .deck-quote-panel, .deck-need-text, .deck-full-content,
       .deck-relaunch-content, .deck-awards-left, .deck-awards-right {
@@ -2177,12 +2178,90 @@
         transform: none !important;
       }
 
+      /* ── Financial sections — one per page, vertically centered ── */
+      section {
+        page-break-before: always;
+        break-before: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        min-height: 900px;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        padding: 56px 0 !important;
+        border-bottom: none !important;
+      }
+
+      /* ── Capital bar restored ── */
       .cap-seg.invest { width: 52.08% !important; }
       .cap-seg.profit { width: 47.92% !important; }
 
-      /* bar widths restored via JS beforeprint */
+      /* ══════════════════════════════════════════════
+         COMBINE pages 12 + 13 — Budget + Margins
+         ══════════════════════════════════════════════ */
+      #s-budget {
+        min-height: auto !important;
+        padding: 32px 0 16px !important;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
 
-      footer { page-break-before: avoid; break-before: avoid; }
+      #s-margins {
+        min-height: auto !important;
+        padding: 16px 0 32px !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        border-top: 1px solid #2c2c2c !important;
+      }
+
+      /* Compress budget */
+      #s-budget .lead,
+      #s-margins .lead { display: none !important; }
+
+      #s-budget h2,
+      #s-margins h2 { font-size: 20px !important; margin-bottom: 12px !important; }
+
+      #s-budget .ask-row { margin-top: 12px; }
+      #s-budget .ask-cell { padding: 14px 16px; }
+      #s-budget .ask-cell .big { font-size: 22px; }
+      #s-budget .budget-cols { margin-top: 12px; gap: 16px; }
+      #s-budget .budget-panel { padding: 16px 20px; }
+      #s-budget .budget-panel-total { margin-bottom: 12px; }
+      #s-budget .brow { margin-bottom: 6px; }
+      #s-budget .brow-hd { font-size: 11px; }
+
+      /* Compress margins */
+      #s-margins .margin-block { margin-top: 12px; }
+      #s-margins .margin-block + .margin-block { margin-top: 10px; }
+      #s-margins .margin-grid { padding: 12px !important; gap: 10px !important; }
+      #s-margins .margin-card-head { padding: 8px 14px; }
+      #s-margins .margin-card-head h3 { font-size: 12px; }
+      #s-margins .mrow { padding: 6px 14px; font-size: 11px; }
+      #s-margins .mrow.net .mval { font-size: 13px; }
+      #s-margins .margin-block-head { padding: 8px 14px; }
+      #s-margins .margin-block-head h3 { font-size: 11px; }
+
+      /* ══════════════════════════════════════════════
+         COMBINE pages 14 + 15 — Founder + Footer
+         ══════════════════════════════════════════════ */
+      #s-founder {
+        min-height: auto !important;
+        padding: 48px 0 32px !important;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      footer {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        padding: 24px 0;
+        margin-top: 0;
+        border-top: 1px solid #2c2c2c !important;
+      }
+
+      /* Compact founder bio */
+      #s-founder .founder-bio { font-size: 12px !important; line-height: 1.6 !important; }
+      #s-founder .founder-bio + .founder-bio { margin-top: 10px !important; }
     }
   </style>
 
