@@ -2138,6 +2138,54 @@
 
   </div><!-- /page -->
 
+  <style>
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      @page { size: 1440px 900px; margin: 0; }
+
+      html, body { width: 1440px; }
+
+      header { display: none !important; }
+
+      .deck {
+        page-break-after: always;
+        break-after: page;
+        border-bottom: none !important;
+      }
+
+      .deck:last-of-type {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      section {
+        page-break-before: always;
+        break-before: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Freeze animations so content is visible */
+      .reveal, .deck-text-panel, .deck-photo-panel,
+      .deck-quote-panel, .deck-need-text, .deck-full-content,
+      .deck-relaunch-content, .deck-awards-left, .deck-awards-right {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .cap-seg.invest { width: 52.08% !important; }
+      .cap-seg.profit { width: 47.92% !important; }
+
+      /* bar widths restored via JS beforeprint */
+
+      footer { page-break-before: avoid; break-before: avoid; }
+    }
+  </style>
+
   <script>
   (function () {
 
@@ -2287,6 +2335,17 @@
     }
 
   })();
+
+  /* Restore animated elements for print */
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('.bar-fill').forEach(function (bar) {
+      bar.style.width = bar.getAttribute('data-w') || bar.style.width;
+    });
+    var invest = document.querySelector('.cap-seg.invest');
+    var profit = document.querySelector('.cap-seg.profit');
+    if (invest) invest.style.width = '52.08%';
+    if (profit) profit.style.width = '47.92%';
+  });
   </script>
 
 </body>
