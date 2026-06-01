@@ -1263,65 +1263,73 @@
     .deck-awards {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 5fr 7fr;
     }
 
+    /* Left — spotlight badge panel */
     .deck-awards-left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       padding: 80px 8%;
-      background: var(--surface);
+      background: radial-gradient(ellipse 70% 55% at 50% 44%,
+        rgba(255,255,255,0.055) 0%,
+        #060606 72%);
       border-right: 1px solid var(--border);
       text-align: center;
+      position: relative;
     }
 
-    .deck-awards-left .page-num {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 36px;
-      align-self: flex-start;
-    }
+    /* Hide page-num on left */
+    .deck-awards-left .page-num { display: none; }
 
+    /* Badge — tilted trophy display */
     .awards-badge {
-      background: rgba(255,255,255,0.96);
-      padding: 28px 36px;
+      transform: rotate(-4deg);
+      transform-origin: center bottom;
       border-radius: 3px;
-      box-shadow: 0 0 48px rgba(94,223,255,0.18), 0 24px 64px rgba(0,0,0,0.4);
+      overflow: hidden;
       margin-bottom: 40px;
+      /* mix-blend trick: make white blend into the lit bg */
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 0 32px rgba(94,223,255,0.35))
+              drop-shadow(0 24px 60px rgba(0,0,0,0.7));
     }
 
     .awards-badge img {
       display: block;
-      max-width: 200px;
-      width: 100%;
+      width: 200px;
       height: auto;
     }
 
     .awards-stat-num {
       display: block;
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(52px, 5vw, 72px);
+      font-size: clamp(56px, 5vw, 80px);
       color: var(--cyan);
       line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .awards-stat-num sup {
+      font-size: 0.5em;
+      vertical-align: top;
+      margin-top: 0.1em;
     }
 
     .awards-stat-label {
       display: block;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 10px;
-      max-width: 220px;
-      line-height: 1.6;
+      margin-top: 8px;
+      line-height: 1.7;
     }
 
+    /* Right — heading + 2-col list */
     .deck-awards-right {
       display: flex;
       flex-direction: column;
@@ -1329,35 +1337,35 @@
       padding: 80px 10% 80px 8%;
     }
 
-    .deck-awards-right .page-num {
-      display: none; /* shown in left panel */
-    }
-
     .deck-awards-right h2 {
-      font-size: clamp(26px, 2.8vw, 40px);
+      font-size: clamp(26px, 2.8vw, 42px);
       color: var(--white);
       line-height: 1.05;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .deck-awards-right h2 span { color: var(--cyan); }
 
     .awards-list {
       list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
     }
 
     .awards-list li {
       display: flex;
       align-items: baseline;
-      gap: 14px;
-      font-size: 13.5px;
+      gap: 12px;
+      font-size: 13px;
       color: var(--text);
       line-height: 1.5;
       padding: 11px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .awards-list li:last-child { border-bottom: none; }
+    .awards-list li:last-child,
+    .awards-list li:nth-last-child(2):nth-child(odd) { border-bottom: none; }
 
     .award-chip {
       flex-shrink: 0;
@@ -1371,11 +1379,11 @@
       white-space: nowrap;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .deck-awards { grid-template-columns: 1fr; }
-      .deck-awards-left { padding: 56px 28px; }
+      .deck-awards-left  { padding: 60px 28px; min-height: 60vh; }
       .deck-awards-right { padding: 56px 28px; }
-      .deck-awards-left .page-num { align-self: center; }
+      .awards-list { grid-template-columns: 1fr; }
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1688,26 +1696,25 @@
     <div class="deck">
       <div class="deck-awards">
         <div class="deck-awards-left">
-          <div class="page-num">06 — Recognition</div>
           <div class="awards-badge">
             <img src="Turnitin_Time_Best_Inventions.jpg" alt="TIME Best Inventions 2025" />
           </div>
-          <span class="awards-stat-num">50+</span>
-          <span class="awards-stat-label">Industry &amp; Global Awards</span>
+          <span class="awards-stat-num">50<sup>+</sup></span>
+          <span class="awards-stat-label">Industry &amp; Global<br/>Awards &amp; Recognition</span>
         </div>
         <div class="deck-awards-right">
           <h2>Award-Winning<br/><span>Innovation</span></h2>
           <ul class="awards-list">
-            <li><span class="award-chip">2018</span>Thomas Edison Award Winner — Consumer Sensors &amp; Biometrics</li>
-            <li><span class="award-chip">2025</span>TIME Magazine — Best Inventions of the Year</li>
+            <li><span class="award-chip">2018</span>Thomas Edison Award — Consumer Sensors &amp; Biometrics</li>
             <li><span class="award-chip">5×</span>CES Innovation Award Winner</li>
-            <li><span class="award-chip">2018</span>CTA Innovation Entrepreneur Award</li>
+            <li><span class="award-chip">2025</span>TIME Magazine Best Inventions of the Year</li>
             <li><span class="award-chip">2021</span>TITAN Business Awards — Gold Winner</li>
-            <li>Travel Sentry Red Diamond — Favorite Padlock Design (Silver Award)</li>
-            <li>Entrepreneurial Spirit Award — U.S. Hispanic Chamber of Commerce</li>
+            <li><span class="award-chip">2018</span>CTA Innovation Entrepreneur Award</li>
+            <li><span class="award-chip">2022</span>New York Product Design Awards — Two Wins</li>
+            <li>Travel Sentry Red Diamond — Favorite Padlock Design</li>
+            <li><span class="award-chip">2017</span>A' Design Award Bronze — Security Products</li>
+            <li>Entrepreneurial Spirit Award — U.S. Hispanic Chamber</li>
             <li>America's Top Small Businesses — U.S. Chamber of Commerce</li>
-            <li><span class="award-chip">2022</span>New York Product Design Awards — Two Category Wins</li>
-            <li><span class="award-chip">2017</span>A' Design Award (Bronze) — Security &amp; Surveillance Products</li>
           </ul>
         </div>
       </div>
