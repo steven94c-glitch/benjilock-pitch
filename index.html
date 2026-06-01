@@ -2197,71 +2197,69 @@
       .cap-seg.profit { width: 47.92% !important; }
 
       /* ══════════════════════════════════════════════
-         COMBINE pages 12 + 13 — Budget + Margins
+         PAGE 12 — Two-Year Budget (fits on one page)
          ══════════════════════════════════════════════ */
-      #s-budget {
-        min-height: auto !important;
-        padding: 32px 0 16px !important;
-        page-break-after: avoid;
-        break-after: avoid;
-      }
+      #s-budget { padding: 40px 0 !important; }
 
-      #s-margins {
-        min-height: auto !important;
-        padding: 16px 0 32px !important;
-        page-break-before: avoid !important;
-        break-before: avoid !important;
-        border-top: 1px solid #2c2c2c !important;
-      }
-
-      /* Compress budget */
-      #s-budget .lead,
-      #s-margins .lead { display: none !important; }
-
-      #s-budget h2,
-      #s-margins h2 { font-size: 20px !important; margin-bottom: 12px !important; }
-
-      #s-budget .ask-row { margin-top: 12px; }
-      #s-budget .ask-cell { padding: 14px 16px; }
-      #s-budget .ask-cell .big { font-size: 22px; }
-      #s-budget .budget-cols { margin-top: 12px; gap: 16px; }
+      #s-budget .lead { display: none !important; }
+      #s-budget h2 { font-size: 22px !important; margin-bottom: 14px !important; }
+      #s-budget .ask-row { margin-top: 14px; }
+      #s-budget .ask-cell { padding: 16px; }
+      #s-budget .ask-cell .big { font-size: 24px; }
+      #s-budget .budget-cols { margin-top: 14px; gap: 16px; }
       #s-budget .budget-panel { padding: 16px 20px; }
-      #s-budget .budget-panel-total { margin-bottom: 12px; }
-      #s-budget .brow { margin-bottom: 6px; }
+      #s-budget .budget-panel-total { margin-bottom: 10px; }
+      #s-budget .brow { margin-bottom: 5px; }
       #s-budget .brow-hd { font-size: 11px; }
-
-      /* Compress margins */
-      #s-margins .margin-block { margin-top: 12px; }
-      #s-margins .margin-block + .margin-block { margin-top: 10px; }
-      #s-margins .margin-grid { padding: 12px !important; gap: 10px !important; }
-      #s-margins .margin-card-head { padding: 8px 14px; }
-      #s-margins .margin-card-head h3 { font-size: 12px; }
-      #s-margins .mrow { padding: 6px 14px; font-size: 11px; }
-      #s-margins .mrow.net .mval { font-size: 13px; }
-      #s-margins .margin-block-head { padding: 8px 14px; }
-      #s-margins .margin-block-head h3 { font-size: 11px; }
+      #s-budget .bar-track { height: 3px; }
 
       /* ══════════════════════════════════════════════
-         COMBINE pages 14 + 15 — Founder + Footer
+         PAGE 13 — Profit Margins (fits on one page)
+         ══════════════════════════════════════════════ */
+      #s-margins { padding: 40px 0 !important; }
+
+      #s-margins .lead { display: none !important; }
+      #s-margins h2 { font-size: 22px !important; margin-bottom: 14px !important; }
+      #s-margins .margin-block { margin-top: 14px; }
+      #s-margins .margin-block + .margin-block { margin-top: 12px; }
+      #s-margins .margin-block-head { padding: 8px 16px; }
+      #s-margins .margin-block-head h3 { font-size: 11px; }
+      #s-margins .margin-grid { padding: 12px !important; gap: 10px !important; margin-top: 0 !important; }
+      #s-margins .margin-card-head { padding: 8px 14px; }
+      #s-margins .margin-card-head h3 { font-size: 12px; }
+      #s-margins .margin-card-head .msrp { font-size: 10px; }
+      #s-margins .mrow { padding: 5px 14px; font-size: 11px; }
+      #s-margins .mrow.net .mval { font-size: 13px; }
+
+      /* ══════════════════════════════════════════════
+         PAGE 14 — Founder (centered)
          ══════════════════════════════════════════════ */
       #s-founder {
-        min-height: auto !important;
-        padding: 48px 0 32px !important;
-        page-break-after: avoid;
-        break-after: avoid;
+        align-items: center !important;
+        padding: 60px 0 !important;
       }
+
+      #s-founder .page {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      #s-founder .founder-row {
+        max-width: 860px;
+        width: 100%;
+      }
+
+      #s-founder .founder-bio { font-size: 12.5px !important; line-height: 1.7 !important; }
+      #s-founder .founder-bio + .founder-bio { margin-top: 12px !important; }
 
       footer {
         page-break-before: avoid !important;
         break-before: avoid !important;
-        padding: 24px 0;
-        margin-top: 0;
+        padding: 20px 0;
         border-top: 1px solid #2c2c2c !important;
       }
-
-      /* Compact founder bio */
-      #s-founder .founder-bio { font-size: 12px !important; line-height: 1.6 !important; }
-      #s-founder .founder-bio + .founder-bio { margin-top: 10px !important; }
     }
   </style>
 
